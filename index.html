@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You 🤍</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">for<span>you</span></div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#likes">Likes</a></li>
+    <li><a href="#note">Note</a></li>
+  </ul>
+</nav>
+
+
+<section class="hero" id="home">
+  <h2>Hi Muhaimin Ensem</h2>
+  <p>This little website is made just for you.</p>
+  <button class="heart-btn" onclick="heartAction()">❤️ tekan sini <br> (adila akan bawak turun segala love & bunga + lagu)</button>
+</section>
+
+
+<section class="gallery" id="gallery">
+  <h2 class="heading">Ini <span>Muhaimin</span></h2>
+  <div class="gallery-box">
+    <div class="polaroid">
+      <img src="muhaimin1.jpg" alt="Moment 1">
+      <p>Always my favourite view</p>
+    </div>
+    <div class="polaroid">
+      <img src="muhaimin2.jpg" alt="Moment 2">
+      <p>🤍</p>
+    </div>
+    <div class="polaroid">
+      <img src="muhaimin3.jpg" alt="Moment 3">
+      <p>A smile I adore</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="profile" id="profile">
+  <h2 class="heading">About <span>Him</span></h2>
+  <div class="card">
+    <p><strong>Name:</strong> Muhammad Muhaimin</p>
+    <p><strong>Personality:</strong> Calm, gentle, dan banyak lagi</p>
+    <p><strong>Smile:</strong> The one that melts my heart</p>
+  </div>
+</section>
+
+
+<section class="likes" id="likes">
+  <h2 class="heading">Things <span>He Loves</span></h2>
+  <div class="likes-box">
+    <span>☕ Coffee</span>
+    <span>🎧 Music</span>
+    <span>🌅 Quiet evenings</span>
+    <span>🤍 adila yang somel</span>
+  </div>
+</section>
+
+
+<section class="note" id="note">
+  <p>
+    “I don’t know how to say this in person,  
+    so I put it here — you mean more to me than you realise.”
+  </p>
+  <div class="cute-pic">
+    <img src="adila2.jpg" alt="Cute You">
+  </div>
+</section>
+
+
+<div id="love-container"></div>
+
+
+<audio id="bg-music" src="lagu1.mp3" loop></audio>
+
+<script>
+function dropLove(){
+  for(let i=0;i<25;i++){
+    let span = document.createElement("span");
+    span.innerHTML = Math.random() > 0.5 ? "🤍" : "🌸";
+    span.classList.add("love");
+    span.style.left = Math.random() * 100 + "vw";
+    span.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.getElementById("love-container").appendChild(span);
+
+    setTimeout(()=>{ span.remove(); },5000);
+  }
+}
+
+function heartAction(){
+ 
+  const music = document.getElementById("bg-music");
+  if(music.paused){
+    music.play();
+  }
+
+  
+  dropLove();
+}
+</script>
+
+</body>
+</html>
+
